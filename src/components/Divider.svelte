@@ -21,19 +21,22 @@
 
 <style>
     #divider {
-        flex: 0 0 0.5rem;
+        display: none;
+        flex: none;
         height: 100%;
         position: relative;
 
         background-color: #6c757d;
         box-shadow: -0.2rem 0 1rem rgba(0, 0, 0, 0.5);
-        cursor: e-resize;
+
     }
 
     #divider-container {
-        display: flex;
+        display: none;
         width: 100%;
         height: 100%;
+        
+        cursor: e-resize;
     }
 
     #divider-container > img {
@@ -51,6 +54,21 @@
         width: 100%;
         height: 100%;
         z-index: 1000;
+
+        cursor: col-resize;
+    }
+
+    @media (min-width: 768px) {
+        #divider {
+            display: block;
+            flex: 0 0 0.5rem;
+        }
+    }
+
+    @media (min-width: 992px) {
+        #divider-container {
+            display: flex;
+        }
     }
 </style>
 

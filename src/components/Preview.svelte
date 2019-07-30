@@ -2,7 +2,7 @@
     #preview {
         display: flex;
         width: 100%;
-        height: 100%;
+        min-height: 100vh;
 
         background-color: purple;
     }
@@ -14,6 +14,13 @@
 
         background-color: #fff;
         box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+    }
+
+    @media (min-width: 768px) {
+        #preview {
+            min-height: 0;
+            height: 100%;
+        }
     }
 </style>
 
