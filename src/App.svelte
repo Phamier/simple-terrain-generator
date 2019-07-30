@@ -2,6 +2,7 @@
     import Preview from './components/Preview.svelte';
     import Divider from './components/Divider.svelte';
     import Inspector from './components/Inspector.svelte';
+    import ArrowUp from './components/ArrowUp.svelte';
 
     import { mousePosition } from './utils/stores';
 
@@ -13,3 +14,5 @@
     <Divider/>
     <Inspector/>
 </div>
+
+<ArrowUp/>
