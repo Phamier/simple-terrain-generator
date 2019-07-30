@@ -18,8 +18,8 @@
         flex: 0 0 768px;
         height: 100%;
 
-        background-color: #aaaaaa;
-        box-shadow: 0 -0.2rem 1rem rgba(0, 0, 0, 0.5);
+        background-color: #ffffff;
+        box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.5);
     }
 
     @media (min-width: 992px) {
