@@ -16,7 +16,7 @@
         box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
         #preview {
             min-height: 0;
             height: 100%;

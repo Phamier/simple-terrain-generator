@@ -58,14 +58,12 @@
         cursor: col-resize;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
         #divider {
             display: block;
             flex: 0 0 0.5rem;
         }
-    }
 
-    @media (min-width: 992px) {
         #divider-container {
             display: flex;
         }

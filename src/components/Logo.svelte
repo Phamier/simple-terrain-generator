@@ -36,13 +36,19 @@
         color: white;
     }
 
-    @media (min-width: 384px) {
+    @media (min-width: 412px) {
         #logo-title {
             font-size: 2.5rem;
+            flex: 0 1 579px;
+            margin: auto 0;
+        }
+
+        #logo > img {
+            margin: auto 5px;
         }
     }
     
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
         #logo {
             position: relative;
             height: auto;

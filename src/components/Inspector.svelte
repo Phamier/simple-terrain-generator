@@ -22,9 +22,9 @@
         box-shadow: 0 -0.2rem 1rem rgba(0, 0, 0, 0.5);
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
         #inspector {
-            flex: 0 0 300px;
+            flex: 0 0 400px;
             box-shadow: none;
         }
     }
