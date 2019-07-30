@@ -24,7 +24,7 @@
 
     @media (min-width: 992px) {
         #inspector {
-            flex: 0 0 400px;
+            flex: 0 0 405px;
             box-shadow: none;
         }
     }
