@@ -42,6 +42,6 @@
 
 {#if windowWidth < 768 && scrollY > windowWidth / 2 }
 <div id='arrowUp' transition:fade={transitionParams} on:click={() => scrollToTop()}>
-    <img src='img/arrow-up.svg' alt=''>
+    <img src='resource/img/arrow-up.svg' alt=''>
 </div>
 {/if}

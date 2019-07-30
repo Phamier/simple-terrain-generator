@@ -1,5 +1,7 @@
 <script>
     import { inspectorWidth } from '../utils/stores';
+    import Logo from './Logo.svelte';
+    
     let currentWidth;
     let windowWidth;
 
@@ -28,4 +30,6 @@
     }
 </style>
 
-<div style={styleTag} id='inspector'></div>
+<div style={styleTag} id='inspector'>
+    <Logo/>
+</div>

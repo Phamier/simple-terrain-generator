@@ -74,7 +74,7 @@
 
 <div id='divider'>
     <div id='divider-container' on:mousedown={() => resizeMode.set(true)}>
-        <img src='img/divider.svg' class='noselect' alt=''>
+        <img src='resource/img/divider.svg' class='noselect' alt=''>
     </div>
 </div>
 
