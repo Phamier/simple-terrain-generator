@@ -29,11 +29,26 @@
         flex: 0 1 469px;
 
         margin: auto;
+        position: relative;
+        left: 0;
+        z-index: 2;
 
         text-align: center;
-        font-size: 2rem;    
-        text-shadow: 0 0 20px #000000;
+        font-size: 2rem;
         color: white;
+        -webkit-text-stroke: 3.5px #000000;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    #logo-title::after {
+        position: absolute;
+        left: 0;
+        content: 'Simple Terrain Generator';
+        -webkit-text-stroke: 0.8px #2C262E;
+        z-index: 1;
+
     }
 
     @media (min-width: 412px) {
