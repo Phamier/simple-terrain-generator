@@ -2,7 +2,7 @@
     #preview {
         display: flex;
         width: 100%;
-        min-height: 100vh;
+        min-height: calc(100vh - 5rem);
 
         background-color: #13202c;
     }
