@@ -1,3 +1,12 @@
+<script>
+    import { inspectorWidth } from '../utils/stores';
+    let currentWidth;
+
+    inspectorWidth.subscribe(value => currentWidth = value);
+
+    $: styleTag = `flex: 0 0 ${currentWidth}px`;
+</script>
+
 <style>
     #inspector {
         display: flex;
@@ -8,4 +17,4 @@
     }
 </style>
 
-<div id='inspector'></div>
+<div style={styleTag} id='inspector'></div>
