@@ -62,6 +62,6 @@
 </style>
 
 <div id='logo'>
-    <img id='logo-map' src='resource/img/map.png' alt=''>
+    <img id='logo-map' src='resource/img/logo-map.png' alt=''>
     <h1 id='logo-title' class='awesome-font'>Simple Terrain Generator</h1>
 </div>
