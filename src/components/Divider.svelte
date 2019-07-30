@@ -26,7 +26,7 @@
         height: 100%;
         position: relative;
 
-        background-color: #6c757d;
+        background-color: #2d3033;
         box-shadow: -0.2rem 0 1rem rgba(0, 0, 0, 0.5);
 
     }

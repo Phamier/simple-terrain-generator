@@ -25,7 +25,7 @@
         z-index: 99;
         outline: none;
 
-        background-color: purple;
+        background-color: #2D3033;
         box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
         border-radius: 1.5rem;
         cursor: pointer;

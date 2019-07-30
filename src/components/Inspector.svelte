@@ -18,7 +18,7 @@
         flex: 0 0 768px;
         height: 100%;
 
-        background-color: #fff;
+        background-color: #aaaaaa;
         box-shadow: 0 -0.2rem 1rem rgba(0, 0, 0, 0.5);
     }
 
