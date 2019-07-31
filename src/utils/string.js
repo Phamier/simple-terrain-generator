@@ -13,7 +13,7 @@ export const randomSeed = () => {
 export const getStringHash = (str) => {
     let hash = 0;
 
-    if (this.length === 0) 
+    if (str.length === 0) 
         return hash;
 
     for (let i = 0; i < str.length; i++) {
