@@ -1,6 +1,7 @@
 <script>
     import { inspectorWidth } from '../utils/stores';
     import Logo from './Logo.svelte';
+    import Form from './Form.svelte';
     
     let currentWidth;
     let windowWidth;
@@ -15,6 +16,7 @@
 <style>
     #inspector {
         display: flex;
+        flex-direction: column;
         flex: 0 0 768px;
         height: 100%;
 
@@ -32,4 +34,5 @@
 
 <div style={styleTag} id='inspector'>
     <Logo/>
+    <Form/>
 </div>
