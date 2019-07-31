@@ -1,7 +1,8 @@
 <script>
-    import { randomSeed } from '../../utils/string';
+    import { randomSeed } from '../../../utils/string';
 
     export let seed = randomSeed();
+    $: isWrong = seed === undefined || seed === '';
 </script>
 
 <style>
@@ -11,7 +12,7 @@
 </style>
 
 <label>
-    <span>Seed :</span>
+    <span class:wrong={isWrong}>Seed :</span>
     <input type='text' bind:value={seed}>
     <button on:click={() => seed = randomSeed()}>Random seed</button>
 </label>

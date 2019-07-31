@@ -123,6 +123,11 @@ button:focus {
     -webkit-touch-callout: none;
 }
 
+.wrong {
+    color: red;
+    font-weight: bolder;
+}
+
 /* App */
 #app {
     display: flex;

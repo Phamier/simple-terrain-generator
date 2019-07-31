@@ -1,7 +1,7 @@
 <script>
     import { inspectorWidth } from '../utils/stores';
     import Logo from './Logo.svelte';
-    import Form from './Form.svelte';
+    import Form from './form/Form.svelte';
     
     let currentWidth;
     let windowWidth;
