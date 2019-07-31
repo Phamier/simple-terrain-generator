@@ -32,6 +32,7 @@ a:visited {
 /* Form styling */
 label {
     display: flex;
+
     flex-direction: row;
     width: 100%;
 }
@@ -42,10 +43,12 @@ label > span {
 }
 
 input, button, select, textarea {
+    display: block;
+    padding: 0.4em;
+    margin: 0.25em 0;
+    
 	font-family: inherit;
 	font-size: inherit;
-	padding: 0.4em;
-	margin: 0.25em 0;
 	border: 1px solid #ccc;
 	border-radius: 2px;
 }
@@ -55,24 +58,34 @@ input:disabled {
 }
 
 input[type="number"] {
-    flex: 1 0 50px;
-    width: 50px;
+    flex: 0 1 100px;
+    min-width: 50px;
+    max-width: 100px;
+
+    -moz-appearance: textfield;
+}
+
+input[type="number"]:hover, input[type="number"]:focus {
+    -moz-appearance: number-input;
 }
 
 input[type="text"] {
-    flex: 1 0 50px;
-    width: 50px;
+    flex: 0 1 100px;
+    min-width: 50px;
+    max-width: 100px;
 }
 
-@media (min-width: 380px) {
+@media (min-width: 400px) {
     input[type="number"] {
         flex: 0 0 100px;
         width: 100px;
+        max-width: 100px;
     }
     
     input[type="text"] {
         flex: 0 0 100px;
         width: 100px;
+        max-width: 100px;
     }
 }
 /* Buttons */

@@ -9,8 +9,10 @@
 
 <style>
     input[type="range"] {
-        flex: 1 0;
+        flex: 0 1 100%;
+        min-width: 0;
         height: 0;
+        
         margin: auto 0 auto 15px;
     }
 </style>

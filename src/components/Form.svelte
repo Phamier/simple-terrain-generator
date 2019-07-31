@@ -16,7 +16,8 @@
 <style>
     #form {
         display: flex;
-        flex-direction: column;
+        flex-flow: column;
+        -ms-flex-flow: column;
         position: relative;
 
         width: 100%;
