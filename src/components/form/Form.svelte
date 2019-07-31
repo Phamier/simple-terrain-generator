@@ -1,5 +1,6 @@
 <script>
     import { MAP_SIDE_RANGE, SCALE_RANGE, OCTAVES_RANGE, LACUNARITY_RANGE, PERSISTANCE_RANGE } from '../../utils/constants';
+    import { mapParams } from '../../utils/stores';
 
     import NumberRange from './components/NumberRange.svelte';
     import SeedLabel from './components/SeedLabel.svelte';
@@ -11,6 +12,23 @@
     let octaves = 3;
     let lacunarity = 2;
     let persistance = 0.5;
+
+    const handleChange = event => {
+        const properties = {
+            seed,
+            width,
+            height,
+            scale,
+            octaves,
+            lacunarity,
+            persistance
+        };
+
+        mapParams.set(properties);
+        console.log(properties);
+    };
+
+    handleChange();
 </script>
 
 <style>
@@ -43,32 +61,38 @@
         property='Width' 
         description='Controls width of a map'
         range={MAP_SIDE_RANGE}
+        on:change={handleChange}
     />
     <NumberRange
         bind:value={height}
         property='Height'
         description='Controls height of a map'
         range={MAP_SIDE_RANGE}
+        on:change={handleChange}
     />
     <h2>Terrain</h2>
     <NumberRange
         bind:value={scale}
         property='Scale'
         range={SCALE_RANGE}
+        on:change={handleChange}
     />
     <NumberRange
         bind:value={octaves}
         property='Octaves'
         range={OCTAVES_RANGE}
+        on:change={handleChange}
     />
     <NumberRange
         bind:value={lacunarity}
         property='Lacunarity'
         range={LACUNARITY_RANGE}
+        on:change={handleChange}
     />
     <NumberRange
         bind:value={persistance}
         property='Persistance'
         range={PERSISTANCE_RANGE}
+        on:change={handleChange}
     />
 </div>

@@ -1,10 +1,13 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
     import InfoSlot from './InfoSlot.svelte';
 
     export let value;
     export let property;
     export let range;
     export let description;
+
+    const dispatch = createEventDispatcher();
 
     let {min, max} = range;
     let step = range.step || 1;
@@ -17,6 +20,9 @@
     const hideInfoSlot = () => infoIsShown = false;
     const showRangeSlot = () => rangeIsShown = true;
     const hideRangeSlot = () => rangeIsShown = false;
+
+    const sendDispatch = value => !isWrong ? dispatch('change', { change: value }) : undefined;
+    $: sendDispatch(value);
 </script>
 
 <style>
