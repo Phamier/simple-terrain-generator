@@ -25,7 +25,6 @@
         };
 
         mapParams.set(properties);
-        console.log(properties);
     };
 
     handleChange();
