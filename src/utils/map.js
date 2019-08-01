@@ -29,8 +29,8 @@ const generateNoiseMap = params => {
             let noiseHeight = 0;
             
             octaveOffsets.forEach(offset => {
-                const sampleX = x / scale * frequency + offset.x;
-                const sampleY = y / scale * frequency + offset.y;
+                const sampleX = x / 10 / scale * frequency + offset.x;
+                const sampleY = y / 10 / scale * frequency + offset.y;
 
                 const perlinValue = simplex.noise2D(sampleX, sampleY);
                 noiseHeight += perlinValue * amplitude;
