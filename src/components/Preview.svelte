@@ -1,3 +1,7 @@
+<script>
+    import Map from './map/Map.svelte';
+</script>
+
 <style>
     #preview {
         display: flex;
@@ -5,15 +9,6 @@
         min-height: calc(100vh - 5rem);
 
         background-color: #13202c;
-    }
-
-    #map {
-        width: 50%;
-        height: 50%;
-        margin: auto;
-
-        background-color: #fff;
-        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
     }
 
     @media (min-width: 992px) {
@@ -25,5 +20,5 @@
 </style>
 
 <div id='preview'>
-    <div id='map'></div>
+    <Map/>
 </div>
