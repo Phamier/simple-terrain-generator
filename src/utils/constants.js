@@ -32,3 +32,15 @@ export const PERSISTENCE_RANGE = Object.freeze({
     max: 1,
     step: SLIDER_FLOAT_STEP
 });
+
+// Map
+export const MAP_TYPES = Object.freeze([
+    { height: 0.3, color: '#2885aa' },
+    { height: 0.4, color: '#3666c6' },
+    { height: 0.5, color: '#b2c155'},
+    { height: 0.55, color: '#569717' },
+    { height: 0.6, color: '#457711' },
+    { height: 0.7, color: '#56453c' },
+    { height: 0.9, color: '#4a3835' },
+    { height: 1, color: '#ffffff' }
+]);

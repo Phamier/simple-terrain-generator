@@ -1,5 +1,6 @@
 import SimplexNoise from 'simplex-noise';
 import { Chance } from 'chance';
+import { MAP_TYPES } from './constants';
 
 const normalizeValue = (value, range) => (value - range.min) / (range.max - range.min) ;
 
@@ -61,43 +62,21 @@ const generateNoiseMap = params => {
     return noiseMap;
 }
 
-const calculateColor = noiseHeight => {
-    let r, g, b;
-    if (noiseHeight <= 0.3) {
-        r = 40;
-        g = 132;
-        b = 170;
-    } else if (noiseHeight <= 0.4) {
-        r = 54;
-        g = 102;
-        b = 198;
-    } else if (noiseHeight <= 0.5) {
-        r = 178;
-        g = 193;
-        b = 85;
-    } else if (noiseHeight <= 0.55) {
-        r = 86;
-        g = 151;
-        b = 23;
-    } else if (noiseHeight <= 0.6) {
-        r = 69;
-        g = 119;
-        b = 17;
-    } else if (noiseHeight <= 0.7) {
-        r = 89;
-        g = 69;
-        b = 60;
-    } else if (noiseHeight <= 0.9) {
-        r = 74;
-        g = 56;
-        b = 53;
-    } else {
-        r = 255;
-        g = 255;
-        b = 255;
-    }
+const hexToRgb = hex => {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
 
-    return { r, g, b };
+const calculateColor = noiseHeight => {
+    for (let i = 0; i < MAP_TYPES.length; i++) {
+        if (noiseHeight <= MAP_TYPES[i].height) {
+            return hexToRgb(MAP_TYPES[i].color);
+        }
+    }
 }
 
 const generateColorMap = async params => {
