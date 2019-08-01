@@ -27,7 +27,7 @@ export const LACUNARITY_RANGE = Object.freeze({
     step: SLIDER_FLOAT_STEP
 });
 
-export const PERSISTANCE_RANGE = Object.freeze({
+export const PERSISTENCE_RANGE = Object.freeze({
     min: SLIDER_FLOAT_STEP,
     max: 1,
     step: SLIDER_FLOAT_STEP

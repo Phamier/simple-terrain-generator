@@ -1,5 +1,5 @@
 <script>
-    import { MAP_SIDE_RANGE, SCALE_RANGE, OCTAVES_RANGE, LACUNARITY_RANGE, PERSISTANCE_RANGE } from '../../utils/constants';
+    import { MAP_SIDE_RANGE, SCALE_RANGE, OCTAVES_RANGE, LACUNARITY_RANGE, PERSISTENCE_RANGE } from '../../utils/constants';
     import { mapParams } from '../../utils/stores';
     import { randomSeed } from '../../utils/string';
 
@@ -12,7 +12,7 @@
     let scale = 1;
     let octaves = 3;
     let lacunarity = 2;
-    let persistance = 0.5;
+    let persistence = 0.5;
 
     const handleChange = event => {
         const properties = {
@@ -22,7 +22,7 @@
             scale,
             octaves,
             lacunarity,
-            persistance
+            persistence
         };
 
         mapParams.set(properties);
@@ -59,14 +59,14 @@
     <NumberRange 
         bind:value={width} 
         property='Width' 
-        description='Controls width of a map'
+        description='Width of a map'
         range={MAP_SIDE_RANGE}
         on:change={handleChange}
     />
     <NumberRange
         bind:value={height}
         property='Height'
-        description='Controls height of a map'
+        description='Height of a map'
         range={MAP_SIDE_RANGE}
         on:change={handleChange}
     />
@@ -74,25 +74,30 @@
     <NumberRange
         bind:value={scale}
         property='Scale'
+        description=''
         range={SCALE_RANGE}
         on:change={handleChange}
     />
     <NumberRange
         bind:value={octaves}
         property='Octaves'
+        description='One of the coherent-noise functions in a series of coherent-noise functions that are added together to form Perlin noise. These coherent-noise functions are called octaves
+        The number of octaves control the amount of detail of Perlin noise. Adding more octaves increases the detail of Perlin noise, with the added drawback of increasing the calculation time.'
         range={OCTAVES_RANGE}
         on:change={handleChange}
     />
     <NumberRange
         bind:value={lacunarity}
         property='Lacunarity'
+        description='A multiplier that determines how quickly the frequency increases for each successive octave'
         range={LACUNARITY_RANGE}
         on:change={handleChange}
     />
     <NumberRange
-        bind:value={persistance}
-        property='Persistance'
-        range={PERSISTANCE_RANGE}
+        bind:value={persistence}
+        property='Persistence'
+        description='A similar property to lacunarity is persistence, which modifies the octaves&#39; amplitudes'   
+        range={PERSISTENCE_RANGE}
         on:change={handleChange}
     />
 </div>
