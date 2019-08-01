@@ -35,9 +35,9 @@ export const PERSISTENCE_RANGE = Object.freeze({
 
 // Map
 export const MAP_TYPES = Object.freeze([
-    { height: 0.3, color: '#2885aa' },
+    { height: 0.3, color: '#143b88' },
     { height: 0.4, color: '#3666c6' },
-    { height: 0.5, color: '#b2c155'},
+    { height: 0.5, color: '#fefd90'},
     { height: 0.55, color: '#569717' },
     { height: 0.6, color: '#457711' },
     { height: 0.7, color: '#56453c' },
