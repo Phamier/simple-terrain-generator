@@ -6,6 +6,7 @@
     #preview {
         display: flex;
         width: 100%;
+        height: calc(100vh - 5rem);
         min-height: calc(100vh - 5rem);
 
         background-color: #13202c;
