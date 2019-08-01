@@ -100,7 +100,7 @@ const calculateColor = noiseHeight => {
     return { r, g, b };
 }
 
-export const generateColorMap = async params => {
+const generateColorMap = async params => {
     const noiseMap = generateNoiseMap(params);
     const colorMap = [];
 
@@ -110,4 +110,23 @@ export const generateColorMap = async params => {
     });
 
     return colorMap;
+}
+
+export const updateCanvas = async (canvas, params) => {
+    const { width, height } = params;
+
+    canvas.width = width;
+    canvas.height = height;
+
+    const colorMap = await generateColorMap(params);
+    const ctx = canvas.getContext('2d');
+    const imgData = ctx.createImageData(width, height);
+    const data = imgData.data;
+
+    colorMap.forEach((value, index) => {
+        data[index] = value;
+    });
+
+    ctx.putImageData(imgData, 0, 0);
+    ctx.imageSmoothingEnabled = false;
 }

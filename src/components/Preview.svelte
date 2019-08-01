@@ -1,5 +1,8 @@
 <script>
-    import Map from './map/Map.svelte';
+    import Map from './Map.svelte';
+
+    let width;
+    let height;
 </script>
 
 <style>
@@ -20,6 +23,6 @@
     }
 </style>
 
-<div id='preview'>
-    <Map/>
+<div id='preview' bind:clientWidth={width} bind:clientHeight={height}>
+    <Map bind:previewWidth={width} bind:clientHeight={height}/>
 </div>

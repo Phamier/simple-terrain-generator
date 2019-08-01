@@ -1,27 +1,12 @@
 <script>
     import { onMount } from 'svelte';
-    import { mapParams } from '../../utils/stores';
-    import { generateColorMap } from '../../utils/map';
+    import { mapParams } from '../utils/stores';
+    import { updateCanvas } from '../utils/map';
 
     const calculateSize = (width, height) => width >= height ? 'width: 60%' : 'height: 70%';
-    const updateCanvas = async (canvas, params) => {
-        const { width, height } = params;
 
-        canvas.width = width;
-        canvas.height = height;
-
-        const colorMap = await generateColorMap(params);
-        const ctx = canvas.getContext('2d');
-        const imgData = ctx.createImageData(width, height);
-        const data = imgData.data;
-
-        colorMap.forEach((value, index) => {
-            data[index] = value;
-        });
-
-        ctx.putImageData(imgData, 0, 0);
-        ctx.imageSmoothingEnabled = false;
-    }
+    export let previewHeight;
+    export let previewWidth;
 
     let width;
     let height;
