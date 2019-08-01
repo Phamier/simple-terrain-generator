@@ -1,9 +1,10 @@
 <script>
     import { mapParams } from '../../utils/stores';
+    import { generateColorMap } from '../../utils/map';
 
     mapParams.subscribe(params => {
         if (params) {
-            console.log(params);
+            generateColorMap(params)
         }
     });
 
