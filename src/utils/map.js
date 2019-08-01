@@ -19,6 +19,10 @@ const generateNoiseMap = params => {
         octaveOffsets.push({ x, y });
     }
 
+
+    const halfWidth = width / 2;
+    const halfHeight = height / 2;
+
     let maxNoiseHeight = Number.MIN_VALUE;
     let minNoiseHeight = Number.MAX_VALUE;
 
@@ -27,10 +31,10 @@ const generateNoiseMap = params => {
             let amplitude = 1;
             let frequency = 1;
             let noiseHeight = 0;
-            
+
             octaveOffsets.forEach(offset => {
-                const sampleX = x / 10 / scale * frequency + offset.x;
-                const sampleY = y / 10 / scale * frequency + offset.y;
+                const sampleX = (x - halfWidth) / 10 / scale * frequency + offset.x;
+                const sampleY = (y - halfHeight) / 10 / scale * frequency + offset.y;
 
                 const perlinValue = simplex.noise2D(sampleX, sampleY);
                 noiseHeight += perlinValue * amplitude;

@@ -13,6 +13,7 @@ export const MAP_SIDE_RANGE = {
 export const SCALE_RANGE = Object.freeze({
     min: 1,
     max: 10,
+    step: SLIDER_FLOAT_STEP
 });
 
 export const OCTAVES_RANGE = Object.freeze({
