@@ -7,7 +7,7 @@ export const MAX_INSPECTOR_WIDTH = 650;
 const SLIDER_FLOAT_STEP = 0.01;
 export const MAP_SIDE_RANGE = {
     min: 50,
-    max: 250
+    max: 200
 }
 
 export const SCALE_RANGE = Object.freeze({
