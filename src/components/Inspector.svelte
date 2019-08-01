@@ -28,6 +28,7 @@
         #inspector {
             flex: 0 0 405px;
             box-shadow: none;
+            overflow-y: auto;
         }
     }
 </style>
