@@ -1,10 +1,10 @@
 {
   "name": "simple-terrain-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
-      "name": "Phamier",
-      "email": "phamier@outlook.com",
-      "url": "https://github.com/Phamier"
+    "name": "Phamier",
+    "email": "phamier@outlook.com",
+    "url": "https://github.com/Phamier"
   },
   "devDependencies": {
     "chance": "^1.0.18",
