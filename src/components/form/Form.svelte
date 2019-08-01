@@ -1,11 +1,12 @@
 <script>
     import { MAP_SIDE_RANGE, SCALE_RANGE, OCTAVES_RANGE, LACUNARITY_RANGE, PERSISTANCE_RANGE } from '../../utils/constants';
     import { mapParams } from '../../utils/stores';
+    import { randomSeed } from '../../utils/string';
 
     import NumberRange from './components/NumberRange.svelte';
     import SeedLabel from './components/SeedLabel.svelte';
 
-    let seed;
+    let seed = randomSeed();
     let width = 100;
     let height = 100;
     let scale = 1;
@@ -54,7 +55,7 @@
 
 <div id='form'>
     <h2>Map</h2>
-    <SeedLabel bind:seed={seed}/>
+    <SeedLabel bind:seed={seed} on:change={handleChange}/>
     <NumberRange 
         bind:value={width} 
         property='Width' 
