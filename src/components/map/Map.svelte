@@ -56,6 +56,10 @@
         max-height: 80%;
         margin: auto;
 
+        image-rendering: auto;
+        image-rendering: crisp-edges;
+        image-rendering: pixelated;
+
         box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
     }
 </style>
