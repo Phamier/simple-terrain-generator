@@ -23,6 +23,6 @@
     }
 </style>
 
-<div id='preview' bind:clientWidth={width} bind:clientHeight={height}>
-    <Map bind:previewWidth={width} bind:clientHeight={height}/>
+<div id='preview'>
+    <Map/>
 </div>
