@@ -8,7 +8,7 @@ export const validateParams = (params) => {
     const { seed, width, height, scale, octaves, lacunarity, persistence } = params;
     
     if (seed && width && height && scale && octaves && lacunarity) {
-        if (isValueInRange(width, MAP_SIDE_RANGE) && isValueInRange(persistence, PERSISTENCE_RANGE) &&
+        if (isValueInRange(width, MAP_SIDE_RANGE) && isValueInRange(height, MAP_SIDE_RANGE) && isValueInRange(persistence, PERSISTENCE_RANGE) &&
             isValueInRange(lacunarity, LACUNARITY_RANGE) && isValueInRange(scale, SCALE_RANGE) &&
             seed !== '') {
                 return true;
