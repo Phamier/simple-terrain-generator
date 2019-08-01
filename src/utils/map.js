@@ -54,8 +54,6 @@ const generateNoiseMap = params => {
         }
     }
 
-    console.log(minNoiseHeight, maxNoiseHeight);
-    console.log(persistence, lacunarity);
     noiseMap.forEach((noiseHeight, index, array) => {
         array[index] = normalizeValue(noiseHeight, { min: minNoiseHeight, max: maxNoiseHeight});
     });
