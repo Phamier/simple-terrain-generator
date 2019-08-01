@@ -1,25 +1,66 @@
 <script>
+    import { onMount } from 'svelte';
     import { mapParams } from '../../utils/stores';
     import { generateColorMap } from '../../utils/map';
 
-    mapParams.subscribe(params => {
+    const calculateSize = (width, height) => width >= height ? 'width: 70%' : 'height: 70%';
+    const updateCanvas = async (canvas, params) => {
+        const { width, height } = params;
+
+        canvas.width = width;
+        canvas.height = height;
+
+        const colorMap = await generateColorMap(params);
+        const ctx = canvas.getContext('2d');
+        const imgData = ctx.createImageData(width, height);
+        const data = imgData.data;
+
+        colorMap.forEach((value, index) => {
+            data[index] = value;
+        });
+
+        ctx.putImageData(imgData, 0, 0);
+        ctx.imageSmoothingEnabled = false;
+    }
+
+    let width;
+    let height;
+
+    let canvas;
+    let lastParams;
+
+    let promise;
+    let styleTag = calculateSize(width, height);
+
+    mapParams.subscribe(async params => {
         if (params) {
-            generateColorMap(params)
+
+            width = params.width;
+            height = params.height;
+            styleTag = calculateSize(width, height)
+
+            lastParams = params;
+
+            if (canvas) {
+                updateCanvas(canvas, lastParams);
+            }
         }
     });
 
-    let promise;
+    onMount(async() => {
+        styleTag = calculateSize(width, height);
+        updateCanvas(canvas, lastParams);
+    });
+
 </script>
 
 <style>
     #map {
-        width: 50%;
-        height: 50%;
+        max-width: 70%;
         margin: auto;
 
-        background-color: #fff;
         box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
     }
 </style>
 
-<div id='map'></div>
+<canvas style={styleTag} id='map' bind:this={canvas}></canvas>

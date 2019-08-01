@@ -1,7 +1,7 @@
 import SimplexNoise from 'simplex-noise';
 import { Chance } from 'chance';
 
-const lerp = (value, from, to) => to.min + (value - from.min) * (to.max - to.min) / (from.max - from.min);
+const normalizeValue = (value, range) => (value - range.min) / (range.max - range.min) ;
 
 const generateNoiseMap = params => {
     const { seed, width, height, scale, octaves, lacunarity, persistence } = params;
@@ -19,8 +19,8 @@ const generateNoiseMap = params => {
         octaveOffsets.push({ x, y });
     }
 
-    let maxNoiseHeight = Number.MAX_SAFE_INTEGER;
-    let minNoiseHeight = Number.MIN_SAFE_INTEGER;
+    let maxNoiseHeight = Number.MIN_VALUE;
+    let minNoiseHeight = Number.MAX_VALUE;
 
     for (let y = 0; y < height; y++) {
         for (let x = 0; x < width; x++) {
@@ -39,6 +39,7 @@ const generateNoiseMap = params => {
                 frequency *= lacunarity;
             });
 
+
             if (noiseHeight > maxNoiseHeight) {
                 maxNoiseHeight = noiseHeight;
             } else if (noiseHeight < minNoiseHeight) {
@@ -49,16 +50,62 @@ const generateNoiseMap = params => {
         }
     }
 
+    console.log(minNoiseHeight, maxNoiseHeight);
+    console.log(persistence, lacunarity);
     noiseMap.forEach((noiseHeight, index, array) => {
-        array[index] = lerp(noiseHeight, { min: minNoiseHeight, max: maxNoiseHeight}, { min: 0, max: 1});
+        array[index] = normalizeValue(noiseHeight, { min: minNoiseHeight, max: maxNoiseHeight});
     });
 
     return noiseMap;
 }
 
-export const generateColorMap = params => {
-    const { width, height } = params;
-    const noiseMap = generateNoiseMap(params);
+const calculateColor = noiseHeight => {
+    let r, g, b;
+    if (noiseHeight <= 0.3) {
+        r = 40;
+        g = 132;
+        b = 170;
+    } else if (noiseHeight <= 0.4) {
+        r = 54;
+        g = 102;
+        b = 198;
+    } else if (noiseHeight <= 0.5) {
+        r = 178;
+        g = 193;
+        b = 85;
+    } else if (noiseHeight <= 0.55) {
+        r = 86;
+        g = 151;
+        b = 23;
+    } else if (noiseHeight <= 0.6) {
+        r = 69;
+        g = 119;
+        b = 17;
+    } else if (noiseHeight <= 0.7) {
+        r = 89;
+        g = 69;
+        b = 60;
+    } else if (noiseHeight <= 0.9) {
+        r = 74;
+        g = 56;
+        b = 53;
+    } else {
+        r = 255;
+        g = 255;
+        b = 255;
+    }
 
-    console.log(noiseMap.length);
+    return { r, g, b };
+}
+
+export const generateColorMap = async params => {
+    const noiseMap = generateNoiseMap(params);
+    const colorMap = [];
+
+    noiseMap.forEach(noiseHeight => {
+        const {r, g, b} = calculateColor(noiseHeight);
+        colorMap.push(r, g, b, 255);
+    });
+
+    return colorMap;
 }
