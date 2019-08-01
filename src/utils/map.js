@@ -1,6 +1,22 @@
 import SimplexNoise from 'simplex-noise';
 import { Chance } from 'chance';
-import { MAP_TYPES } from './constants';
+import { MAP_TYPES, OCTAVES_RANGE, MAP_SIDE_RANGE, PERSISTENCE_RANGE, LACUNARITY_RANGE, SCALE_RANGE } from './constants';
+
+const isValueInRange = (value, range) => value <= range.max && value >= range.min;
+
+export const validateParams = (params) => {
+    const { seed, width, height, scale, octaves, lacunarity, persistence } = params;
+    
+    if (seed && width && height && scale && octaves && lacunarity) {
+        if (isValueInRange(width, MAP_SIDE_RANGE) && isValueInRange(height, MAP_SIDE_RANGE) && isValueInRange(persistence, PERSISTENCE_RANGE) &&
+            isValueInRange(lacunarity, LACUNARITY_RANGE) && isValueInRange(scale, SCALE_RANGE) &&
+            seed !== '') {
+                return true;
+        }
+    }
+
+    return false;
+}
 
 const normalizeValue = (value, range) => (value - range.min) / (range.max - range.min) ;
 

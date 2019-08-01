@@ -7,7 +7,7 @@
 
     $: isWrong = seed === undefined || seed === '';
     
-    const sendDispatch = seed => !isWrong ? dispatch('change', { change: seed }) : undefined;
+    const sendDispatch = seed => dispatch('change', { change: seed });
     $: sendDispatch(seed);
 </script>
 

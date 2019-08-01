@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { mapParams } from '../utils/stores';
-    import { updateCanvas } from '../utils/map';
+    import { updateCanvas, validateParams } from '../utils/map';
 
     let previewHeight;
     let previewWidth;
@@ -13,7 +13,7 @@
     let lastParams;
     let widthTag;
 
-    $: if (width && height && previewWidth && previewHeight) {
+    $: if (width && height && previewWidth && previewHeight && validateParams(lastParams)) {
         const ratio = width / height;
         const maxHeight = 0.8 * previewHeight;
 
@@ -32,7 +32,7 @@
             height = params.height;
             lastParams = params;
 
-            if (canvas) {
+            if (canvas && validateParams(params)) {
                 updateCanvas(canvas, lastParams);
             }
         }
