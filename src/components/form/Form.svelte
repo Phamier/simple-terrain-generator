@@ -7,10 +7,10 @@
     import SeedLabel from './components/SeedLabel.svelte';
 
     let seed = randomSeed();
-    let width = 100;
-    let height = 100;
+    let width = 300;
+    let height = 300;
     let scale = 1;
-    let octaves = 3;
+    let octaves = 2;
     let lacunarity = 2;
     let persistence = 0.5;
 
