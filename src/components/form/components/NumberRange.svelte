@@ -21,7 +21,7 @@
     const showRangeSlot = () => rangeIsShown = true;
     const hideRangeSlot = () => rangeIsShown = false;
 
-    const sendDispatch = value => !isWrong ? dispatch('change', { change: value }) : undefined;
+    const sendDispatch = value => dispatch('change', { change: value });
     $: sendDispatch(value);
 </script>
 
