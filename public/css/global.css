@@ -40,6 +40,13 @@ label {
 label > span {
     margin: auto 0;
     flex: 0 0 5.5rem;
+
+    cursor: help;
+}
+
+label > span:hover, label > span:focus {
+    color: #13202c;
+    text-decoration: underline;
 }
 
 input, button, select, textarea {
