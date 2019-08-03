@@ -74,7 +74,7 @@
     <NumberRange
         bind:value={scale}
         property='Scale'
-        description=''
+        description='Zoom level'
         range={SCALE_RANGE}
         on:change={handleChange}
     />
