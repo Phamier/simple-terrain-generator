@@ -2,6 +2,7 @@
     import { MAP_SIDE_RANGE, SCALE_RANGE, OCTAVES_RANGE, LACUNARITY_RANGE, PERSISTENCE_RANGE } from '../../utils/constants';
     import { mapParams } from '../../utils/stores';
     import { randomSeed } from '../../utils/string';
+    import { validateParams } from '../../utils/map';
 
     import NumberRange from './components/NumberRange.svelte';
     import SeedLabel from './components/SeedLabel.svelte';
@@ -24,8 +25,10 @@
             lacunarity,
             persistence
         };
-
-        mapParams.set(properties);
+        
+        if (validateParams(properties)) {
+            mapParams.set(properties);
+        }
     };
 
     handleChange();
