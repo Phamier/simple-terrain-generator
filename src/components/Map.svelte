@@ -13,7 +13,7 @@
     let lastParams;
     let widthTag;
 
-    $: if (width && height && previewWidth && previewHeight && validateParams(lastParams)) {
+    $: if (width && height && previewWidth && previewHeight) {
         const ratio = width / height;
         const maxHeight = 0.8 * previewHeight;
 
@@ -32,7 +32,7 @@
             height = params.height;
             lastParams = params;
 
-            if (canvas && validateParams(params)) {
+            if (canvas) {
                 updateCanvas(canvas, lastParams);
             }
         }
